@@ -18,11 +18,14 @@
 			</ul>
 		{% else %}
 			<strong>No pages currently in category.</strong>
-			<a href="/rango/category/{{category.slug}}/add_page/">Add Page</a> <br/>
-			<a href="/rango/">View index page</a><br />			
 		{% endif %}
+		
+		{% if user.is_authenticated %}
+			<a href="{% url 'add_page' category.slug %}">Add a Page</a><br/>
+		{% endif %}
+		
 	{% else %}
-		<div style="color: red;"> The specified category does not exist! </div>
-		<a href="/rango/">View index page</a><br />
+		The specified category does not exist!
 	{% endif %}
+	</div>
 {% endblock %}
