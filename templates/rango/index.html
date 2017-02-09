@@ -1,12 +1,14 @@
 {% extends "rango/base.html" %}
+{% load staticfiles %}
 
 {% block title %}
-	Rango says...
+	Index
 {% endblock %}
 
 {% block body_block %}
 <div>
-	<h1>Hey there partner!</h1>
+	<h1>Rango says...</h1>
+		hey there partner!
 </div>
 
 <div>		
@@ -21,7 +23,7 @@
 		{% endfor %}
 	</ul>
 	{% else %}
-		<strong>There are no categories present.</strong>
+		<strong style="color: red;">There are no categories present.</strong>
 	{% endif %}
 	</div>
 	
@@ -30,18 +32,20 @@
 	{% if pages %}
 		<ul>
         {% for page in pages %}
-			<li><a href="{{ page.url}}">{{ page.title }}</a> - {{ page.category}} ({{ page.views }} view(s))</li>
+			<li><a href="{{ page.url }}">{{ page.title }}</a></li>
         {% endfor %}
         </ul>
 	{% else %}
-		<strong>There are no pages present.</strong>
+		<strong style="color: red;">There are no pages present.</strong>
 	{% endif %}
 
 	<div>
 		<a href="/rango/add_category/">Add a New Category</a><br />
 		<a href="/rango/about/">About Rango</a><br />
-		<img src="{% static "images/rango.jpg" %}" alt="Picture of Rango" />
+		
 	</div>
 	</div>
+	
+			<img src="{% static "images/rango.jpg" %}" alt="Picture of Rango" />
 </div>
 {% endblock %}
